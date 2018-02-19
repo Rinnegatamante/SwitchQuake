@@ -302,8 +302,8 @@ KEYS & INPUTS
 */
 typedef struct
 {
-    uint64_t  button;
-    int        key;
+	uint64_t  button;
+	int        key;
 } nx_buttons;
 
 #define MAX_NX_KEYS 12
@@ -345,7 +345,7 @@ void NX_KeyUp(int keys, int oldkeys) {
 
 void Sys_SendKeyEvents(void)
 {
-    hidScanInput();
+	hidScanInput();
 	uint64_t kDown = hidKeysDown(CONTROLLER_P1_AUTO);
 	uint64_t kUp = hidKeysUp(CONTROLLER_P1_AUTO);
 
@@ -527,7 +527,7 @@ int main(int argc, char **argv)
 		}*/
 
 		// Get current frame
-        uint64_t tick = svcGetSystemTick();
+		uint64_t tick = svcGetSystemTick();
 		const unsigned int deltaTick = tick - lastTick;
 		const float   deltaSecond = deltaTick * tickRate;
 

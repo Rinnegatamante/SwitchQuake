@@ -98,11 +98,11 @@ void	VID_Init (unsigned char *palette)
 
 void VID_ChangeRes(float scale){
 	
-    // Freeing texture
-    if (tex_buffer != NULL) free(tex_buffer);
-    
+	// Freeing texture
+	if (tex_buffer != NULL) free(tex_buffer);
+	
 	int idx = 0;
-    if (scale == 1.777f) idx = 0;
+	if (scale == 1.777f) idx = 0;
 	
 	// Changing renderer resolution
 	int width = cur_width = widths[idx];
@@ -130,14 +130,14 @@ void	VID_Shutdown (void)
 }
 
 void VID_DrawPalettedFramebuffer(uint8_t* fb, uint32_t* pal){
-    int x, y;
-    uint32_t w, h;
-    uint32_t* framebuf = (uint32_t*)gfxGetFramebuffer((uint32_t*)&w, (uint32_t*)&h);
-    for (y=0;y<h;y++){
-        for (x=0;x<w;x++){
-            framebuf[y*w+x] = pal[fb[y*w+x]];
-        }
-    }
+	int x, y;
+	uint32_t w, h;
+	uint32_t* framebuf = (uint32_t*)gfxGetFramebuffer((uint32_t*)&w, (uint32_t*)&h);
+	for (y=0;y<h;y++){
+		for (x=0;x<w;x++){
+			framebuf[y*w+x] = pal[fb[y*w+x]];
+		}
+	}
 }
 
 void	VID_Update (vrect_t *rects)
@@ -147,9 +147,9 @@ void	VID_Update (vrect_t *rects)
 		Cvar_SetValue ("v_gamma", fixpalette);
 		fixpalette = 0;
 	}
-    VID_DrawPalettedFramebuffer((uint8_t*)tex_buffer, mem_palette);
+	VID_DrawPalettedFramebuffer((uint8_t*)tex_buffer, mem_palette);
 	gfxFlushBuffers();
-    gfxSwapBuffers();
+	gfxSwapBuffers();
 	if (vid_vsync.value) gfxWaitForVsync();
 }
 
