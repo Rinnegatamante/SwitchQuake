@@ -282,7 +282,7 @@ void Sys_Sleep(void)
 
 double Sys_FloatTime(void)
 {
-	return svcGetSystemTick() * 5.208333f;
+	return svcGetSystemTick() * (1.0f / 19200000.0f);
 }
 
 void Sys_HighFPPrecision(void)
@@ -383,7 +383,7 @@ int main(int argc, char **argv)
 	// Initializing stuffs
 	gfxInitDefault();
 
-	const float tickRate = 5.208333f;
+	const float tickRate = 1.0f / 19200000.0f;
 	static quakeparms_t    parms;
 
 	parms.memsize = 16 * 1024 * 1024;

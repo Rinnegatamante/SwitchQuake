@@ -51,11 +51,11 @@ bool SNDDMA_Init(void)
 	shm->submission_chunk = 1;
 	shm->buffer = audiobuffer;
 	
-	tickRate = 5.208333f;
+	tickRate = 1.0f / 19200000.0f;
 	
 	audoutInitialize();
 	audoutStartAudioOut();
-    
+	
 	initial_tick = svcGetSystemTick();
 
 	snd_initialized = 1;
@@ -91,14 +91,14 @@ Send sound to device if buffer isn't really the dma buffer
 */
 void SNDDMA_Submit(void)
 {
-    AudioOutBuffer source_buffer;
-    AudioOutBuffer released_buffer;
-    
-    source_buffer.next = 0;
-    source_buffer.buffer = audiobuffer;
-    source_buffer.buffer_size = AUDIOSIZE;
-    source_buffer.data_size = SAMPLE_RATE / 5;
-    source_buffer.data_offset = 0;
+	AudioOutBuffer source_buffer;
+	AudioOutBuffer released_buffer;
+	
+	source_buffer.next = 0;
+	source_buffer.buffer = audiobuffer;
+	source_buffer.buffer_size = AUDIOSIZE;
+	source_buffer.data_size = SAMPLE_RATE / 5;
+	source_buffer.data_offset = 0;
 
-    audoutPlayBuffer(&source_buffer, &released_buffer);
+	audoutPlayBuffer(&source_buffer, &released_buffer);
 }
