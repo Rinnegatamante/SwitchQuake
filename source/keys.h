@@ -73,11 +73,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define	K_JOY3			205
 #define	K_JOY4			206
 
-// PSP / PSVita Buttons
-#define	K_CROSS			207
-#define	K_SQUARE		208
-#define	K_TRIANGLE		209
-#define	K_CIRCLE		210
+// NX Buttons
+#define	K_A			207
+#define	K_Y		208
+#define	K_X		209
+#define	K_B		210
 #define	K_LEFTTRIGGER	211
 #define	K_RIGHTTRIGGER	212
 #define	K_SELECT		213

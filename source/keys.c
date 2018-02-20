@@ -95,11 +95,11 @@ keyname_t keynames[] =
 	{"JOY3", K_JOY3},
 	{"JOY4", K_JOY4},
 	
-	// PSP / PSVITA Buttons
-	{"CROSS", K_CROSS},
-	{"SQUARE", K_SQUARE },
-	{"TRIANGLE", K_TRIANGLE },
-	{"CIRCLE", K_CIRCLE },
+	// NX Buttons
+	{"A", K_A},
+	{"Y", K_Y},
+	{"X", K_X},
+	{"B", K_B},
 	{"LTRIGGER", K_LEFTTRIGGER },
 	{"RTRIGGER", K_RIGHTTRIGGER },
 	{"START", K_START }, // Start Button
@@ -171,7 +171,7 @@ void Key_Console (int key)
 {
 	char	*cmd;
 
-	if (key == K_CROSS)
+	if (key == K_A)
 	{
 		Key_SendText(key_lines[edit_line] + 1);
 		if (cls.state == ca_disconnected)
@@ -288,7 +288,7 @@ void Key_Message (int key)
 {
 	static int chat_bufferlen = 0;
 
-	if (key == K_CROSS)
+	if (key == K_A)
 	{
 		if (team_message)
 			Cbuf_AddText ("say_team \"");
@@ -549,10 +549,10 @@ void Key_Init (void)
 	consolekeys[K_SELECT] = true;
 	consolekeys[K_LEFTTRIGGER] = true;
 	consolekeys[K_RIGHTTRIGGER] = true;
-	consolekeys[K_CROSS] = true;
-	consolekeys[K_TRIANGLE] = true;
-	consolekeys[K_SQUARE] = true;
-	consolekeys[K_CIRCLE] = true;
+	consolekeys[K_A] = true;
+	consolekeys[K_X] = true;
+	consolekeys[K_Y] = true;
+	consolekeys[K_B] = true;
 
 	menubound[K_START] = true;
 

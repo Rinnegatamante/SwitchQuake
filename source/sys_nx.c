@@ -21,16 +21,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "quakedef.h"
 #include "errno.h"
 #include <switch.h>
+#include <stdio.h>
+#include <sys/stat.h>
 
 #define BIGSTACK_SIZE 20 * 1024 * 1024
 byte sys_bigstack[BIGSTACK_SIZE];
 int sys_bigstack_cursize;
 
 // Mods support
-int max_mod_idx = -1;
+/*int max_mod_idx = -1;
 extern bool CheckForMod(char* dir);
 extern void MOD_SelectModMenu(char *basedir);
-extern char* modname;
+extern char* modname;*/
 
 extern int old_char;
 extern int setup_cursor;
@@ -68,12 +70,10 @@ int             Sys_FindHandle(void)
 void Log(const char *format, ...) {
 #ifdef DEBUG
 	__gnuc_va_list arg;
-	int done;
 	va_start(arg, format);
 	char msg[512];
-	done = vsprintf(msg, format, arg);
+	vsprintf(msg, format, arg);
 	va_end(arg);
-	int i;
 	sprintf(msg, "%s\n", msg);
 	FILE* log = fopen("./log.txt", "a+");
 	if (log != NULL) {
@@ -319,10 +319,10 @@ nx_buttons KeyTable[MAX_NX_KEYS] =
 	{ KEY_L, K_LEFTTRIGGER},
 	{ KEY_R, K_RIGHTTRIGGER},
 
-	{ KEY_X, K_SQUARE},
-	{ KEY_Y, K_TRIANGLE},
-	{ KEY_A, K_CROSS},
-	{ KEY_B, K_CIRCLE}
+	{ KEY_X, K_X},
+	{ KEY_Y, K_Y},
+	{ KEY_A, K_A},
+	{ KEY_B, K_B}
 };
 
 void NX_KeyDown(int keys) {
@@ -448,7 +448,7 @@ int main(int argc, char **argv)
 	}*/
 
 	// Just to be sure to use the correct resolution in config.cfg
-	VID_ChangeRes(res_val.value);
+	// VID_ChangeRes(res_val.value);
 
 	uint64_t lastTick = svcGetSystemTick();
 
@@ -539,8 +539,8 @@ int main(int argc, char **argv)
 
 	// I'm sure those can be removed
 	free(parms.membase);
-	free(modname);
-	if (mod_path != NULL) free(mod_path);
+	/*free(modname);
+	if (mod_path != NULL) free(mod_path);*/
 	//===============================
 
 	gfxExit();

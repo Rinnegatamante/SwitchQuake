@@ -313,7 +313,7 @@ void M_Main_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		key_dest = key_game;
 		m_state = m_none;
 		cls.demonum = m_save_demonum;
@@ -333,8 +333,8 @@ void M_Main_Key (int key)
 			m_main_cursor = MAIN_ITEMS - 1;
 		break;
 
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		m_entersound = true;
 
 		switch (m_main_cursor)
@@ -399,7 +399,7 @@ void M_SinglePlayer_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_Main_f ();
 		break;
 
@@ -415,8 +415,8 @@ void M_SinglePlayer_Key (int key)
 			m_singleplayer_cursor = SINGLEPLAYER_ITEMS - 1;
 		break;
 
-	case K_CROSS: // Cross		
-	case K_CIRCLE: // Circle
+	case K_A: // Cross		
+	case K_B: // Circle
 		m_entersound = true;
 
 		switch (m_singleplayer_cursor)
@@ -539,12 +539,12 @@ void M_Load_Key (int k)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_SinglePlayer_f ();
 		break;
 
-	case K_CIRCLE: // Circle
-	case K_CROSS: // Cross
+	case K_B: // Circle
+	case K_A: // Cross
 		S_LocalSound ("misc/menu2.wav");
 		if (!loadable[load_cursor])
 			return;
@@ -584,12 +584,12 @@ void M_Save_Key (int k)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_SinglePlayer_f ();
 		break;
 		
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		m_state = m_none;
 		key_dest = key_game;
 		Cbuf_AddText (va("save s%i\n", load_cursor));
@@ -654,7 +654,7 @@ void M_MultiPlayer_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_Main_f ();
 		break;
 
@@ -670,8 +670,8 @@ void M_MultiPlayer_Key (int key)
 			m_multiplayer_cursor = MULTIPLAYER_ITEMS - 1;
 		break;
 
-	case K_CIRCLE: // Circle
-	case K_CROSS: // Cross
+	case K_B: // Circle
+	case K_A: // Cross
 		m_entersound = true;
 		switch (m_multiplayer_cursor)
 		{
@@ -725,9 +725,9 @@ void M_Benchmark_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
-	case K_CIRCLE: // Circle
-	case K_CROSS: // Cross
+	case K_X:
+	case K_B: // Circle
+	case K_A: // Cross
 		M_Menu_Options_f ();
 		break;
 	}
@@ -806,7 +806,7 @@ void M_Setup_Key (int k)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_MultiPlayer_f ();
 		break;
 
@@ -844,8 +844,8 @@ forward:
 			setup_bottom = setup_bottom + 1;
 		break;
 	
-	case K_CIRCLE: // Circle
-	case K_CROSS: // Cross
+	case K_B: // Circle
+	case K_A: // Cross
 		if (setup_cursor == 0 || setup_cursor == 1)
 			return;
 
@@ -1204,12 +1204,12 @@ void M_Options_Key (int k)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_Main_f ();
 		break;
 	
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		m_entersound = true;
 		switch (options_cursor)
 		{
@@ -1431,7 +1431,7 @@ void M_Keys_Key (int k)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_Options_f ();
 		break;
 
@@ -1451,8 +1451,8 @@ void M_Keys_Key (int k)
 			keys_cursor = 0;
 		break;
 	
-	case K_CIRCLE:		// go into bind mode
-	case K_CROSS:		// go into bind mode
+	case K_B:		// go into bind mode
+	case K_A:		// go into bind mode
 		M_FindKeysForCommand (bindnames[keys_cursor][0], keys);
 		S_LocalSound ("misc/menu2.wav");
 		if (keys[1] != -1)
@@ -1518,7 +1518,7 @@ void M_Help_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_Main_f ();
 		break;
 
@@ -1614,7 +1614,7 @@ void M_Quit_Key (int key)
 {
 	switch (key)
 	{
-	case K_TRIANGLE:
+	case K_X:
 	case K_SELECT:
 	case 'n':
 	case 'N':
@@ -1630,8 +1630,8 @@ void M_Quit_Key (int key)
 		}
 		break;
 
-	case K_CROSS:
-	case K_CIRCLE:
+	case K_A:
+	case K_B:
 		key_dest = key_console;
 		Host_Quit_f ();
 		break;
@@ -1780,7 +1780,7 @@ void M_LanConfig_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_MultiPlayer_f ();
 		break;
 
@@ -1801,8 +1801,8 @@ void M_LanConfig_Key (int key)
 			lanConfig_cursor = 0;
 		break;
 
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		if (lanConfig_cursor == 0)
 			break;
 
@@ -1941,7 +1941,7 @@ void M_OnlineServerList_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_MultiPlayer_f ();
 		break;
 
@@ -1959,8 +1959,8 @@ void M_OnlineServerList_Key (int key)
 			onlineServerList_cursor = 0;
 		break;
 
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		m_return_state = m_state;
 		m_return_onerror = true;
 		key_dest = key_game;
@@ -2379,7 +2379,7 @@ void M_GameOptions_Key (int key)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_Net_f ();
 		break;
 
@@ -2411,8 +2411,8 @@ void M_GameOptions_Key (int key)
 		M_NetStart_Change (1);
 		break;
 
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		S_LocalSound ("misc/menu2.wav");
 		if (gameoptions_cursor == 0)
 		{
@@ -2562,7 +2562,7 @@ void M_ServerList_Key (int k)
 	{
 	case K_ENTER:
 	case K_START:
-	case K_TRIANGLE:
+	case K_X:
 		M_Menu_LanConfig_f ();
 		break;
 
@@ -2586,8 +2586,8 @@ void M_ServerList_Key (int k)
 			slist_cursor = 0;
 		break;
 
-	case K_CIRCLE:
-	case K_CROSS:
+	case K_B:
+	case K_A:
 		S_LocalSound ("misc/menu2.wav");
 		m_return_state = m_state;
 		m_return_onerror = true;
