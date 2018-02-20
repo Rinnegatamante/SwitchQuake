@@ -127,7 +127,7 @@ void D_FlushCaches (void)
 D_SCAlloc
 =================
 */
-surfcache_t     *D_SCAlloc (int width, int size)
+surfcache_t     *D_SCAlloc (int width, int64_t size)
 {
 	surfcache_t             *new;
 	bool                wrapped_this_time;
@@ -138,7 +138,7 @@ surfcache_t     *D_SCAlloc (int width, int size)
 	if ((size <= 0) || (size > 0x10000))
 		Sys_Error ("D_SCAlloc: bad cache size %d\n", size);
 	
-	size = (int)&((surfcache_t *)0)->data[size];
+	size = (int64_t)&((surfcache_t *)0)->data[size];
 	size = (size + 3) & ~3;
 	if (size > sc_size)
 		Sys_Error ("D_SCAlloc: %i > cache size",size);

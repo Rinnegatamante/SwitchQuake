@@ -42,7 +42,7 @@ extern cvar_t res_val;
 
 short	zbuffer[960*544];
 byte*	surfcache;
-uint8_t* tex_buffer;
+uint8_t* tex_buffer = NULL;
 u16	d_8to16table[256];
 
 uint32_t mem_palette[256];
@@ -90,7 +90,7 @@ void	VID_Init (unsigned char *palette)
 	surfcache = malloc(SURFCACHE_SIZE);
 	D_InitCaches (surfcache, SURFCACHE_SIZE);
 	
-	sprintf(res_string,"Current Resolution: %ld x %ld", widths[3], heights[3]);
+	sprintf(res_string,"Current Resolution: %d x %d", widths[3], heights[3]);
 	Cvar_RegisterVariable (&res_val);
 	Cvar_RegisterVariable(&vid_vsync);
 	
@@ -112,7 +112,7 @@ void VID_ChangeRes(float scale){
 	vid.maxwarpheight = vid.height = vid.conheight = height;
 	vid.rowbytes = vid.conrowbytes = width;	
 	vid.buffer = vid.conbuffer = vid.direct = tex_buffer;
-	sprintf(res_string,"Current Resolution: %ld x %ld", widths[idx], heights[idx]);
+	sprintf(res_string,"Current Resolution: %d x %d", widths[idx], heights[idx]);
 	
 	// Forcing a palette restoration
 	fixpalette = v_gamma.value;

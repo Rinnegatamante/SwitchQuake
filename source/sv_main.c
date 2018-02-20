@@ -197,11 +197,11 @@ void SV_SendServerinfo (client_t *client)
 	if (svs.maxclients > 1)
 	{
 		MSG_WriteByte(&client->message, svc_print);
-		snprintf(message, sizeof(message), "\n\35\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\37\n"
+		snprintf(message, 2048, "\n\35\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\36\37\n"
 			"\n   \01\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\03");
 		MSG_WriteString(&client->message, message);
 		MSG_WriteByte(&client->message, svc_print);
-		snprintf(message, sizeof(message), "\02\n   \04ProQuake Server Version %4.2f\06"
+		snprintf(message, 2048, "\02\n   \04ProQuake Server Version %4.2f\06"
 			"\n   \07\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\11", VERSION_PROQUAKE);
 		MSG_WriteString(&client->message, message);
 	}

@@ -841,8 +841,9 @@ if (cl.onground && ent->origin[2] - oldz > 0)
 	r_refdef.vieworg[2] += oldz - ent->origin[2];
 	view->origin[2] += oldz - ent->origin[2];
 }
-else
+else{
 	oldz = ent->origin[2];
+}
 
 	if (chase_active.value)
 		Chase_Update ();

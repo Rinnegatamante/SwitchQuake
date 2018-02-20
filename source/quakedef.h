@@ -25,8 +25,8 @@ enum {m_none, m_main, m_singleplayer, m_load, m_save, m_multiplayer, m_setup, m_
 
 #define	QUAKE_GAME			// as opposed to utilities
 
-#define ENGINE_NAME			"VitaQuake"
-#define	VERSION				2.1
+#define ENGINE_NAME			"SwitchQuake"
+#define	VERSION				1.0
 #define VERSION_PROQUAKE	3.50
 
 //define	PARANOID			// speed sapping error checking

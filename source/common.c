@@ -960,7 +960,7 @@ void COM_Init (char *basedir)
 
 /*
 =====================================
-SINCE VITAQUAKE IS LITTLE ENDIAN...
+SINCE SWITCH IS LITTLE ENDIAN...
 =====================================
 */
 
