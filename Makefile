@@ -36,17 +36,18 @@ DATA		:=	data
 INCLUDES	:=	include
 EXEFS_SRC	:=	exefs_src
 GIT_VERSION := $(shell git describe --abbrev=6 --dirty --always --tags)
+ICON		:= icon.jpg
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 ARCH	:=	-march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE
 
-CFLAGS	:=	-DGIT_VERSION=\"$(GIT_VERSION)\" -g -w -O2 \
-			-ffast-math \
+CFLAGS	:=	-DGIT_VERSION=\"$(GIT_VERSION)\" -g -Wl,-q -O2 \
+			-fsigned-char -ffast-math -ffunction-sections \
 			$(ARCH) $(DEFINES)
 
-CFLAGS	+=	$(INCLUDE) -DSWITCH
+CFLAGS	+=	$(INCLUDE) -DSWITCH -DDEBUG
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 
