@@ -40,8 +40,8 @@ const float scales[4] = {1.777, 1.777, 1.777, 1.777};
 extern cvar_t res_val;
 #define SURFCACHE_SIZE 10485760
 
-short	zbuffer[960*544];
-byte*	surfcache;
+short zbuffer[960*544];
+byte* surfcache;
 uint8_t* tex_buffer = NULL;
 u16	d_8to16table[256];
 
@@ -52,7 +52,7 @@ void	VID_SetPalette (unsigned char *palette)
 	int i;
 	uint32_t* palette_tbl = mem_palette;
 	u8* pal = palette;
-	unsigned r, g, b;
+	uint32_t r, g, b;
 	
 	for(i=0; i<256; i++){
 		r = pal[0];

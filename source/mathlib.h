@@ -30,6 +30,20 @@ typedef	int	fixed8_t;
 typedef	int	fixed16_t;
 #define FIXED16_MAX INT_MAX;
 
+/* min and max macros with type checking */
+#define qmax(a,b) ({       \
+    typeof(a) a_ = (a);   \
+    typeof(b) b_ = (b);   \
+    (void)(&a_ == &b_);   \
+    (a_ > b_) ? a_ : b_;  \
+})
+#define qmin(a,b) ({       \
+    typeof(a) a_ = (a);   \
+    typeof(b) b_ = (b);   \
+    (void)(&a_ == &b_);   \
+    (a_ < b_) ? a_ : b_;  \
+})
+
 #define DEG2RAD(a) ((a * M_PI) / 180.0f)
 
 struct mplane_s;

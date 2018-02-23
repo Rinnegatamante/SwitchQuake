@@ -718,9 +718,9 @@ void CalcSurfaceExtents(msurface_t *s)
 
 		for (j = 0; j<2; j++)
 		{
-			val = v->position[0] * tex->vecs[j][0] +
-				v->position[1] * tex->vecs[j][1] +
-				v->position[2] * tex->vecs[j][2] +
+			val = (long double)v->position[0] * tex->vecs[j][0] +
+				(long double)v->position[1] * tex->vecs[j][1] +
+				(long double)v->position[2] * tex->vecs[j][2] +
 				tex->vecs[j][3];
 			if (val < mins[j])
 				mins[j] = val;
