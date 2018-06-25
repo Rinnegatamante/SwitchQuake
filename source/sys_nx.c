@@ -440,7 +440,7 @@ int main(int argc, char **argv)
 	}*/
 
 	IN_ResetInputs();
-	Cbuf_AddText("exec config.cfg\n");
+//	Cbuf_AddText("exec config.cfg\n");
 
 	/*if ( sceKernelGetModelForCDialog() == PLATFORM_PSVITA) // Ch0wW: SOMEONE HEEEELP ME :c
 	{
